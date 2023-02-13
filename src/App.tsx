@@ -1,10 +1,7 @@
-import React, { FC } from 'react';
-import './App.css';
+import React, { FC } from "react";
 
-const App: FC = () => {
-  return (
-    <div>Bank Rate</div>
-  );
-}
+import Root from './routes';
+
+const App: FC = () => <Root />;
 
 export default App;

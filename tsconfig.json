@@ -1,27 +1,43 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "target": "ES2016",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "ES2016"
-    ],
     "allowJs": true,
-    "alwaysStrict": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
+    "alwaysStrict": true,
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "ES6",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "importHelpers": true,
     "isolatedModules": true,
+    "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "node",
     "noEmit": true,
-    "jsx": "react"
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES2016"
   },
+  "lib": [
+    "dom",
+    "es2018"
+  ],
+  "typeRoots": [
+    "node_modules/@types"
+  ],
   "include": [
-    "src"
+    "**/styles/**/*",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.css"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    ".vscode"
   ]
 }

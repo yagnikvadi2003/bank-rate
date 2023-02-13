@@ -1,16 +1,30 @@
 {
   "name": "bank-rate",
   "version": "0.1.0",
+  "description": "Free and easy-to-use portfolio application template based on React 18+ , written in Typescript.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yagnikvadi2003/bank-rate"
+  },
+  "bugs": {
+    "url": "https://github.com/yagnikvadi2003/bank-rate/issues"
+  },
   "private": true,
+  "main": "./src/index.tsx",
+  "keywords": [
+    "typescript",
+    "react"
+  ],
   "dependencies": {
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "@types/react-router-dom": "^5.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.0"
   },
@@ -20,7 +34,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "devdependencies": {
+  "devDependencies": {
     "typescript": "^4.9.5"
   },
   "eslintConfig": {
