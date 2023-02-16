@@ -34,7 +34,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.css"
-  ],
+, "src/container/BankRate.tsx"  ],
   "exclude": [
     "node_modules",
     ".next",

@@ -1,29 +1,37 @@
-import React, { FC, useState } from 'react'
+import React, { ChangeEvent, FC, MouseEvent, useState } from 'react';
 
-const BankRate: FC = () => {
+const BankRate: FC = (): JSX.Element => {
     const [bankBalance, setBankBalance] = useState<number>(5000);
-    const [getBalance, setGetBalance] = useState<number>()
+    const [getAmount, setGetAmount] = useState<number>(0);
 
-    // const withDrowBalance = (event: MouseEvent)=> {
-    //     event.preventDefault();
-    //     setGetBalance(event.target.value);
-    //     console.log(getBalance);
-    // }
-    const withDrowBalance = (
-        event: React.ChangeEvent<HTMLInputElement>
-    ) => {
-        event.preventDefault();
-        
+    const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
+        setGetAmount(parseInt(event.target.value));
+    };
+
+    const withDrawBalance = (e: MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        setBankBalance(bankBalance - getAmount);
+    };
+
+    const depositeBalance = (e: MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        setBankBalance(getAmount + bankBalance);
     };
 
     return (
-        <>
-            <h3>Current bank balance : {bankBalance}</h3>
-            <input type="number" value={getBalance} onChange={(event)=>setGetBalance}/>
-            <button onClick={()=>withDrowBalance}>withdraw</button>
-            <button>deposit</button>
-        </>
+        <div className="app">
+                <div className='stopwatch-card'>
+                    <label htmlFor="currentBalance">
+                        Current bank balance : {bankBalance}
+                    </label>
+                    <div className='buttons'>
+                        <input type="number" id="Amount" name="Enter Amount" value={getAmount} onChange={handleChange} />
+                        <button onClick={withDrawBalance}>withdraw</button>
+                        <button onClick={depositeBalance}>deposit</button>
+                    </div>
+                </div>
+        </div>
     )
 }
 
-export default BankRate
+export default BankRate;

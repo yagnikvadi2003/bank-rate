@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 
-const ErrorPage: FC = () => {
+const ErrorPage: FC = (): JSX.Element => {
   let error:any = useRouteError() as Error;
   if (!isRouteErrorResponse(error) || error.status !== 401) {
     throw error;

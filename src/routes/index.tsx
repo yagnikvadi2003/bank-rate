@@ -6,7 +6,7 @@ import BankRate from "../container/BankRate";
 const Loading = lazy<any>(() => import('./messages/Loading'));
 const ErrorPage = lazy<any>(() => import('./error/ErrorPage'));
 
-const Root: FC = () => {
+const Root: FC = (): JSX.Element => {
   return (
     <React.Suspense fallback={<Loading />}>
       <Routes>
