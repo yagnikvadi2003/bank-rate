@@ -1,33 +1,35 @@
-import React, { ChangeEvent, FC, MouseEvent, useState } from 'react';
+import React, { CSSProperties, ChangeEvent, FC, MouseEvent, useState } from 'react';
+
+import Button from '../common/button/Button';
+import Input from '../common/input/Input';
 
 const BankRate: FC = (): JSX.Element => {
     const [bankBalance, setBankBalance] = useState<number>(10000);
     const [getAmount, setGetAmount] = useState<number>(0);
-    const [isHover, setIsHover] = useState<boolean>(false);
 
-    const styles: { [key: string]: React.CSSProperties } = {
-        button: {
-            outline: "none",
-            background: isHover ? "blue" : "transparent",
-            border: isHover ? "1px solid black" : "1px solid blue",
-            padding: "5px 10px",
-            borderRadius: "7px",
-            color: isHover ? "white" : "blue",
-            cursor: "pointer",
-            margin: "0 5px"
+    const styles: { [key: string]: CSSProperties } = {
+        container: {
+            backgroundColor: "#0e4d92",
+            margin: "0 auto",
+            marginTop: "35vh",
+            width: "300px",
+            height: "200px",
+            position: "relative",
+            borderRadius: "10px"
         },
-    };
-     
-    const handleMouseEnter = (e: MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        setIsHover(true);
+        main: {
+            width: "300px",
+            height: "150px",
+            position: "absolute",
+            top: "100px",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            textAlign: "center",
+            backgroundColor: "white",
+            boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)"
+        }
     };
 
-    const handleMouseLeave = (e: MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        setIsHover(false);
-    };
-    
     const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
         setGetAmount(parseInt(event.target.value));
     };
@@ -37,36 +39,19 @@ const BankRate: FC = (): JSX.Element => {
         setBankBalance(bankBalance - getAmount);
     };
 
-    const depositeBalance = (e: MouseEvent<HTMLButtonElement>) => {
+    const depositsBalance = (e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         setBankBalance(getAmount + bankBalance);
     };
 
     return (
-        <div className="app">
-            <div className='stopwatch-card'>
-                <label htmlFor="currentBalance">
-                    Current bank balance : {bankBalance}
-                </label>
+        <div style={styles.container} className="app">
+            <div style={styles.main}>
+                <h3>Current bank balance : {bankBalance}</h3>
+                <Input type="number" id="Amount" name="Enter Amount" value={getAmount} onChange={handleChange} />
                 <br /><br />
-                <input type="number" className="numberBox" id="Amount" name="Enter Amount" value={getAmount} onChange={handleChange} />
-                <br /><br />
-                <button 
-                    onClick={withDrawBalance} 
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                    style={styles.button} 
-                >
-                    withdraw
-                </button>
-                <button 
-                    onClick={depositeBalance} 
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                    style={styles.button} 
-                >
-                    deposit
-                </button>
+                <Button onClick={withDrawBalance} children='withdraw' />
+                <Button onClick={depositsBalance} children='deposit' />
             </div>
         </div>
     )
