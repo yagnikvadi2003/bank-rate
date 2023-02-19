@@ -3,9 +3,25 @@ import React, { CSSProperties, ChangeEvent, FC, MouseEvent, useState } from 'rea
 import Button from '../common/button/Button';
 import Input from '../common/input/Input';
 
+// interface Storage {
+//     clear(): void;
+//     getItem(key: string): string | null;
+//     key(index: number): string | null;
+//     removeItem(key: string): void;
+//     setItem(key: string, value: string): void;
+//     // HERE 😃 [name: string]: any;
+//     [name: string]: any;
+// }
+
 const BankRate: FC = (): JSX.Element => {
     const [bankBalance, setBankBalance] = useState<number>(10000);
     const [getAmount, setGetAmount] = useState<number>(0);
+    // const [items, setItems] = useState([]);
+
+    // useEffect(() => {
+        // setGetAmount(items);
+        // localStorage.setItem<Storage>('items', JSON.stringify(items));
+    // }, [items]);
 
     const styles: { [key: string]: CSSProperties } = {
         container: {
