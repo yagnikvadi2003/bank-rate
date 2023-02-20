@@ -1,28 +1,28 @@
-import React, { CSSProperties, ChangeEvent, FC, MouseEvent, useState } from 'react';
+import React, { CSSProperties, ChangeEvent, FC, MouseEvent, useEffect, useState } from 'react';
 
 import Button from '../common/button/Button';
 import Input from '../common/input/Input';
 
-// interface Storage {
-//     clear(): void;
-//     getItem(key: string): string | null;
-//     key(index: number): string | null;
-//     removeItem(key: string): void;
-//     setItem(key: string, value: string): void;
-//     // HERE 😃 [name: string]: any;
-//     [name: string]: any;
-// }
+interface Storage {
+    clear(): void;
+    getItem(key: string): string | null;
+    key(index: number): string | null;
+    removeItem(key: string): void;
+    setItem(key: string, value: string): void;
+    [name: string]: any;
+}
 
 const BankRate: FC = (): JSX.Element => {
     const [bankBalance, setBankBalance] = useState<number>(10000);
     const [getAmount, setGetAmount] = useState<number>(0);
-    // const [items, setItems] = useState([]);
-
-    // useEffect(() => {
-        // setGetAmount(items);
-        // localStorage.setItem<Storage>('items', JSON.stringify(items));
-    // }, [items]);
-
+    
+    const [history, setHistory] = useState<Storage[]>([]);
+    
+    useEffect(() => {
+        localStorage.setItem('History', JSON.stringify(bankBalance));
+        setHistory(JSON.parse(localStorage.getItem('History') || '[]'));
+    }, [history, getAmount, bankBalance]); 
+    
     const styles: { [key: string]: CSSProperties } = {
         container: {
             backgroundColor: "#0e4d92",
