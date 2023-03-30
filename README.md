@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React-Typescript App](https://github.com/yagnikvadi2003/bank-rate/).
 
+<img src="./src/assets/bank-rate.png" alt="bank rate">
+
 ## Available Scripts
 
 In the project directory, you can run:
